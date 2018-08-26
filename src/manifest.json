@@ -1,0 +1,44 @@
+{
+  "name": "Mr.Crab",
+  "version": "0.0.0",
+  "desciption": "A Chrome extension for Xiezhua",
+  "homepage_url": "https://github.com/LitoMore/mr.crab",
+  "manifest_version": 2,
+  "minimum_chrome_version": "62",
+  "permission": [
+    "storage",
+    "downloads",
+    "webRequest",
+    "webRequestBlocking",
+    "http://weilairiji.com/"
+  ],
+  "icons": {
+    "128": "icon.png"
+  },
+  "options_ui": {
+    "chrome_style": true,
+    "page": "options.html"
+  },
+  "background": {
+    "scripts": [
+      "browser-pollyfill.min.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "http://weilairiji.com/*"
+      ],
+      "css": [
+        "style/content.css"
+      ],
+      "js": [
+        "jquery.slim.min.js",
+        "browser-pollyfill.min.js",
+        "content.js"
+      ]
+    }
+  ]
+}
